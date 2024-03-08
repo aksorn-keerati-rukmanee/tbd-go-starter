@@ -27,7 +27,7 @@
         └── 📁adapters
             └── gorm_order_repository.go
             └── http_fiber_order_handler.go
-        └── 📁app   /app ส่วนสำหรับเก็บ core logic
+        └── 📁app
             └── 📁entities
                 └── order.go
             └── 📁repositories
