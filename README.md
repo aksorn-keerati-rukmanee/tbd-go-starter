@@ -45,11 +45,11 @@
 ```
 
 ```
-/bin                    ส่วนสำหรับเก็บไฟล์ binary ที่ได้จากการ build\
-/cmd                    ส่วนสำหรับเก็บ package main ที่ทำงานต่างกัน สามารถสร้างเพิ่มได้ตามที่ต้องการโดยการสร้างเป็นโฟล์เดอร์ข้างใน cmd อีกที\
--- /fiberserver         main ที่ถูกสร้างขึ้นมาเพื่อ start fiber http server\
--- /hello               main ที่ถูกสร้างขึ้นมาเพื่อปริ้น Hello World!!\
-/internal               ส่วนสำหรับเก็บ adapter และ core logic ต่างๆ\
+/bin                    ส่วนสำหรับเก็บไฟล์ binary ที่ได้จากการ build
+/cmd                    ส่วนสำหรับเก็บ package main ที่ทำงานต่างกัน สามารถสร้างเพิ่มได้ตามที่ต้องการโดยการสร้างเป็นโฟล์เดอร์ข้างใน cmd อีกที
+-- /fiberserver         main ที่ถูกสร้างขึ้นมาเพื่อ start fiber http server
+-- /hello               main ที่ถูกสร้างขึ้นมาเพื่อปริ้น Hello World!!
+/internal               ส่วนสำหรับเก็บ adapter และ core logic ต่างๆ
 -- /adapters            ส่วนสำหรับเก็บ adapter ที implement ขึ้นตาม core logic interface (port)
 -- /app                 ส่วนสำหรับเก็บ core logic
 ---- /entities          ส่วนสำหรับเก็บ model data
