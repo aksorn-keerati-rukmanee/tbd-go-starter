@@ -41,7 +41,6 @@
             └── viper.go
         └── 📁utils
             └── string.go
-    └── config.yaml
 ```
 
 ```
@@ -55,7 +54,6 @@
 ---- /repositories      ส่วนสำหรับเก็บ repository interface เพื่อให้ adapter ต้อง inplement ตาม
 ---- /usecases          ส่วนสำหรับเก็บ usecase service (core logic)
 /pkg                    ส่วนสำหรับเก็บ package ส่วนเสริมต่างๆ
-config.yaml             ไฟล์ env
 ```
 
 ## HOW TO START THE PROJECT
