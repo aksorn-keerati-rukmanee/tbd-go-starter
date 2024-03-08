@@ -1,16 +1,18 @@
-# TBD Golang Starter Project
+# TBD GOLANG STARTER PROJECT
+
+## PROJECT DESCRIPTION
 
 ### Clean Architecture
 
 ![alt text](https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg)
 
-### Folder Structure
-
-#### ประยุกต์ใช้หลักการของ Clean และ Hexagonal Architecture
+### ประยุกต์ใช้หลักการของ Clean และ Hexagonal Architecture
 
 ที่เป็นการแยกส่วนขององค์ประกอบออกจากกันในรูปแบบของ Port & Adapter\
 ที่จะมาการสร้าง Port ขึ้นมาเป็นตัวกำหนดว่าการที่จะสามารถมาเชื่อมต่อได้นั้น\
 จำเป็นจพต้องสร้าง Adapter สำหรับการเชื่อมต่อให้ตรงกับข้อกำหนดที่ Port สร้างไว้
+
+### Folder Structure
 
 ```
 └── 📁tbd-go-starter
@@ -55,4 +57,30 @@
 ---- /usecases          ส่วนสำหรับเก็บ usecase service (core logic)
 /pkg                    ส่วนสำหรับเก็บ package ส่วนเสริมต่างๆ
 config.yaml             ไฟล์ env
+```
+
+## HOW TO START THE PROJECT
+
+### "Run Hello"
+
+```
+go run ./cmd/hello
+```
+
+### Get Package
+
+```
+go get ./cmd/fiberserver
+```
+
+### Run
+
+```
+go run ./cmd/fiberserver
+```
+
+### Build
+
+```
+go build -o ./bin ./cmd/fiberserver
 ```
