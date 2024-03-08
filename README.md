@@ -1,5 +1,7 @@
 # TBD GOLANG STARTER PROJECT
 
+## !! ยังเหลือส่วน Uinit Test ที่ยังไม่ได้เพิ่ม
+
 ## PROJECT DESCRIPTION
 
 ### Clean Architecture
