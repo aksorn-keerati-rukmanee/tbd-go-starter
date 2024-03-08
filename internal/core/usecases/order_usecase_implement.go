@@ -1,13 +1,9 @@
 package usecases
 
 import (
-	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/internal/app/entities"
-	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/internal/app/repositories"
+	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/internal/core/entities"
+	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/internal/core/repositories"
 )
-
-type OrderUseCase interface {
-	CreateOrder(order entities.Order) error
-}
 
 type OrderService struct {
 	repo repositories.OrderRepository

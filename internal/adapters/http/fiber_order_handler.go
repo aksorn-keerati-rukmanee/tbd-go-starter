@@ -1,10 +1,14 @@
-package adapters
+package http
 
 import (
-	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/internal/app/entities"
-	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/internal/app/usecases"
+	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/internal/core/entities"
+	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/internal/core/usecases"
 	"github.com/gofiber/fiber/v2"
 )
+
+// type HttpOrderHandler struct {
+// 	orderUseCase usecases.OrderUseCase
+// }
 
 type HttpOrderHandler struct {
 	orderUseCase usecases.OrderUseCase

@@ -1,8 +1,8 @@
-package adapters
+package repo
 
 import (
-	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/internal/app/entities"
-	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/internal/app/repositories"
+	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/internal/core/entities"
+	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/internal/core/repositories"
 	"gorm.io/gorm"
 )
 

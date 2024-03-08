@@ -3,11 +3,12 @@ package main
 import (
 	"fmt"
 
-	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/internal/adapters"
-	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/internal/app/entities"
-	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/internal/app/usecases"
-	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/pkg/database"
-	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/pkg/env"
+	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/configs/database"
+	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/configs/environment"
+	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/internal/adapters/http"
+	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/internal/adapters/repo"
+	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/internal/core/entities"
+	"github.com/aksorn-keerati-rukmanee/tbd-go-starter/internal/core/usecases"
 	"github.com/gofiber/fiber/v2"
 	"github.com/spf13/viper"
 )
@@ -15,18 +16,28 @@ import (
 func main() {
 
 	//env
-	env.InitViper()
+	environment.InitViper()
 
 	//database
 	db := database.InitGorm()
-	if err := db.AutoMigrate(&entities.Order{}); err != nil {
+	err := db.AutoMigrate(
+		&entities.Order{},
+		&entities.User{},
+		&entities.Language{},
+	)
+	if err != nil {
 		panic(fmt.Errorf("failed to migrate database: %v", err))
 	}
 
 	//combine interface of Order
-	orderRepo := adapters.NewGormOrderRepository(db)
+	orderRepo := repo.NewGormOrderRepository(db)
 	orderService := usecases.NewOrderService(orderRepo)
-	orderHandler := adapters.NewHttpOrderHandler(orderService)
+	orderHandler := http.NewHttpOrderHandler(orderService)
+
+	//combine interface of Language
+	languageRepo := repo.NewGormLanguageRepository(db)
+	languageService := usecases.NewLanguageService(languageRepo)
+	languageHandler := http.NewHttpLanguageHandler(languageService)
 
 	//using framework of http server
 	{
@@ -37,7 +48,10 @@ func main() {
 		app.Get("/", func(c *fiber.Ctx) error {
 			return c.SendString("nothing here")
 		})
+
 		app.Post("/order", orderHandler.CreateOrder)
+
+		app.Post("/language", languageHandler.CreateLanguage)
 
 		//start http server
 		appMode := viper.Get("app.env")
