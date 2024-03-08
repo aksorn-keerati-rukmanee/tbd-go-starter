@@ -1,6 +1,12 @@
 # TBD GOLANG STARTER PROJECT
 
-## !! ยังเหลือส่วน Uinit Test ที่ยังไม่ได้เพิ่ม
+## !! ส่วนที่ยังไม่ได้เพิ่ม
+
+### - การจัดการ Database
+
+### - Unit Test
+
+### - Hot Reload สำหรับ Dev (AIR)
 
 ## PROJECT DESCRIPTION
 
