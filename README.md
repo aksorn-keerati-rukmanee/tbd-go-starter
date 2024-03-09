@@ -8,8 +8,6 @@
 
 ## PROJECT DESCRIPTION
 
-### Clean Architecture
-
 ![alt text](https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg)
 
 ### ประยุกต์ใช้หลักการของ
