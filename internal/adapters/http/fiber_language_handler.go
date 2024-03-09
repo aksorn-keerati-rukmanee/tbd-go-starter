@@ -26,3 +26,13 @@ func (h *HttpLanguageHandler) CreateLanguage(c *fiber.Ctx) error {
 
 	return c.Status(fiber.StatusCreated).JSON(language)
 }
+
+func (h *HttpLanguageHandler) GetAllLanguage(c *fiber.Ctx) error {
+
+	res, err := h.languageUseCase.GetAllLanguage()
+	if err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": err.Error()})
+	}
+
+	return c.Status(fiber.StatusOK).JSON(res)
+}

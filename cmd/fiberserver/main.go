@@ -34,6 +34,11 @@ func main() {
 	orderService := usecases.NewOrderService(orderRepo)
 	orderHandler := http.NewHttpOrderHandler(orderService)
 
+	//combine interface of User
+	userRepo := repo.NewGormUserRepository(db)
+	userService := usecases.NewUserService(userRepo)
+	userHandler := http.NewHttpUserHandler(userService)
+
 	//combine interface of Language
 	languageRepo := repo.NewGormLanguageRepository(db)
 	languageService := usecases.NewLanguageService(languageRepo)
@@ -49,8 +54,15 @@ func main() {
 			return c.SendString("nothing here")
 		})
 
+		//order router
 		app.Post("/order", orderHandler.CreateOrder)
 
+		//user router
+		app.Get("/user", userHandler.GetAllUser)
+		app.Post("/user", userHandler.CreateUser)
+
+		//language router
+		app.Get("/language", languageHandler.GetAllLanguage)
 		app.Post("/language", languageHandler.CreateLanguage)
 
 		//start http server

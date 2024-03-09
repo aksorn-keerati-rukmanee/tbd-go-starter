@@ -2,11 +2,7 @@
 
 ## !! ส่วนที่ยังไม่ได้เพิ่ม
 
-### - การจัดการ Database
-
 ### - Unit Test
-
-### - Hot Reload สำหรับ Dev (AIR)
 
 ## PROJECT DESCRIPTION
 
@@ -24,42 +20,44 @@
 
 ```
 └── 📁tbd-go-starter
+    └── 📁bin
     └── 📁cmd
         └── 📁fiberserver
-            └── main.go
-        └── 📁hello
-            └── main.go
+        └── 📁helloworld
+    └── 📁configs
+        └── 📁database
+        └── 📁environment
     └── 📁internal
         └── 📁adapters
-            └── gorm_order_repository.go
-            └── http_fiber_order_handler.go
-        └── 📁app
+            └── 📁http
+            └── 📁repo
+        └── 📁core
             └── 📁entities
-                └── order.go
             └── 📁repositories
-                └── order_repository.go
             └── 📁usecases
-                └── order_usecase.go
     └── 📁pkg
-        └── 📁database
-            └── gorm.go
-        └── 📁env
-            └── viper.go
         └── 📁utils
-            └── string.go
+    └── 📁tmp
 ```
 
 ```
-/cmd                    ส่วนสำหรับเก็บ package main ที่ทำงานต่างกัน สามารถสร้างเพิ่มได้ตามที่ต้องการโดยการสร้างเป็นโฟล์เดอร์ข้างใน cmd อีกที
+/bin                    binary build file
+/cmd                    ส่วนสำหรับเก็บ package main ที่ทำงานต่างกัน
 -- /fiberserver         main ที่ถูกสร้างขึ้นมาเพื่อ start fiber http server
 -- /hello               main ที่ถูกสร้างขึ้นมาเพื่อปริ้น Hello World!!
+/configs                config ต่างๆ
+-- /database            database config
+-- /environment         env config
 /internal               ส่วนสำหรับเก็บ adapter และ core logic ต่างๆ
 -- /adapters            ส่วนสำหรับเก็บ adapter ที implement ขึ้นตาม core logic interface (port)
--- /app                 ส่วนสำหรับเก็บ core logic
----- /entities          ส่วนสำหรับเก็บ model data
+---- /http              adapter สำหรับ http server
+---- /repo              adapter สำหรับ repo หรือส่วนการติดต่อข้อมูลภายนอก
+-- /core                ส่วนสำหรับเก็บ core logic
+---- /entities          ส่วนสำหรับเก็บ entities data
 ---- /repositories      ส่วนสำหรับเก็บ repository interface เพื่อให้ adapter ต้อง inplement ตาม
 ---- /usecases          ส่วนสำหรับเก็บ usecase service (core logic)
 /pkg                    ส่วนสำหรับเก็บ package ส่วนเสริมต่างๆ
+-- /utils               helper function
 ```
 
 ## HOW TO START THE PROJECT
@@ -86,4 +84,12 @@ go run ./cmd/fiberserver
 
 ```
 go build -o ./bin ./cmd/fiberserver
+```
+
+### Hot Reload with AIR
+
+ดู config ได้ที่ไฟล์ .air.toml
+
+```
+air
 ```

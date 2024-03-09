@@ -14,10 +14,13 @@ func NewLanguageService(repo repositories.LanguageRepository) LanguageUseCase {
 }
 
 func (s *LanguageService) CreateLanguage(Language entities.Language) error {
-	return s.repo.Save(Language)
+	return s.repo.Create(Language)
 }
 
 func (s *LanguageService) GetAllLanguage() ([]entities.Language, error) {
-	// return s.repo.Save(Language)
-	return nil, nil
+	result, err := s.repo.All()
+	if err != nil {
+		return nil, err
+	}
+	return result, nil
 }

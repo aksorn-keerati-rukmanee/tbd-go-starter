@@ -2,14 +2,10 @@ package database
 
 import (
 	"fmt"
-	"log"
-	"os"
-	"time"
 
 	"github.com/spf13/viper"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
-	"gorm.io/gorm/logger"
 )
 
 func InitGorm() (db *gorm.DB) {
@@ -32,15 +28,15 @@ func InitGorm() (db *gorm.DB) {
 	)
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
-		Logger: logger.New(
-			log.New(os.Stdout, "\r\n", log.LstdFlags), // io writer
-			logger.Config{
-				SlowThreshold: time.Second, // Slow SQL threshold
-				LogLevel:      logger.Info, // Log level
-				Colorful:      true,        // Enable color
-			},
-		),
-		DryRun: false,
+		// Logger: logger.New(
+		// 	log.New(os.Stdout, "\r\n", log.LstdFlags),
+		// 	logger.Config{
+		// 		SlowThreshold: time.Second,
+		// 		LogLevel:      logger.Info,
+		// 		Colorful:      true,
+		// 	},
+		// ),
+		// DryRun: false,
 	})
 	if err != nil {
 		panic(fmt.Errorf("can't connect to database: %s", err))
