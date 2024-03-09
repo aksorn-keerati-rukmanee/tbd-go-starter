@@ -58,6 +58,7 @@
 ---- /usecases          ส่วนสำหรับเก็บ usecase service (core logic)
 /pkg                    ส่วนสำหรับเก็บ package ส่วนเสริมต่างๆ
 -- /utils               helper function
+/tmp                    binary file จาก AIR
 ```
 
 ## HOW TO START THE PROJECT
