@@ -1,0 +1,13 @@
+database:
+  db: "postgres"
+  dsn: "host=localhost user=myuser password=mypassword dbname=test port=5432 search_path=workbook sslmode=disable TimeZone=Asia/Bangkok"
+  tables: ["master_grade_level"]
+  outFile: "gen.go"
+  outPath: "./model/query"
+  modelPkgName: "../internal/core/entities"
+  fieldWithTypeTag: true
+  fieldNullable: true
+  fieldWithIndexTag: true
+  withUnitTest: false
+  onlyModel: true
+  fieldSignable: false

@@ -1,0 +1,13 @@
+database:
+  db: "postgres"
+  dsn: "host=dev-workbookdb.aksorn.com user=s_dev_workbook password=Zr1lWVw83jj9! dbname=workbook port=5432 search_path=workbook sslmode=disable TimeZone=Asia/Bangkok"
+  tables: ["master_subject"]
+  outFile: "gen.go"
+  outPath: "./model/query"
+  modelPkgName: "../internal/core/entities"
+  fieldWithTypeTag: true
+  fieldNullable: true
+  fieldWithIndexTag: true
+  withUnitTest: false
+  onlyModel: true
+  fieldSignable: false

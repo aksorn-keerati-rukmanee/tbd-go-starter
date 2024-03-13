@@ -92,6 +92,56 @@
 /tmp                    binary file จาก AIR
 ```
 
+## DATABASE MIGRATION
+
+> ใช้ https://github.com/golang-migrate/migrate ในการจัดการ Migration\
+> ติดตั้ง **migrate** cli command\
+> Windows ใช้ **Scoop** ในการติดตั้ง\
+> เปิด window powershell และใช้คำสั่ง
+
+```
+> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+> Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+```
+
+> สร้างไฟล์ Migration file โดยใช้คำสั่ง
+
+```
+migrate create -ext sql -dir cmd/dbmigration/migrations -seq create_xxxx_table
+```
+
+> คำสั่ง Up Down ถูกสร้างไว้ใน cmd/dbmigration/main.go\
+> \*จะต้องมีการเปลี่ยนแปลงในอนาคต
+
+> Migration Up
+
+```
+go run ./cmd/dbmigration -run up
+```
+
+> Migration Down
+
+```
+go run ./cmd/dbmigration -run down
+```
+
+## DATABASE TO STRUCT
+
+> ในส่วนนี้เราจะใช้ gentool ของ gorm ในการ re-generate db to struct\
+> ติดตั้ง gentool สำหรับเรียกใช้ผ่าน cli ด้วย go install
+
+```
+go install gorm.io/gen/tools/gentool@latest
+```
+
+> สร้างไฟล์ config ของ gentool เป็น .yaml\
+> ตั้งชื่อไฟล์แบบไหนก็ได้ โดยในโปรเจคผมตั้งเป็น gorm-local-gentool.yaml\
+> เรียกใช้ไฟล์ config ผ่านคำสั่ง
+
+```
+gentool -c gorm-local-gentool.yaml
+```
+
 ## HOW TO START THE PROJECT
 
 ### "Run Hello"
